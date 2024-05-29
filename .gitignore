@@ -1,0 +1,32 @@
+# Android Studio
+*.iml
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# JetBrains
+.idea
+*.iml
+*.ipr
+*.iws
+
+
+# Gradle
+kls_database.db
+gradle
+.gradle
+gradlew
+build
+
+
+# macOS
+.DS_Store
