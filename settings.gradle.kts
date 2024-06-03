@@ -11,4 +11,4 @@ dependencyResolutionManagement {
   }
 }
 
-include(":app")
+include(":demo")

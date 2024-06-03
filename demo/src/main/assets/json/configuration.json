@@ -10,17 +10,18 @@
       "properties": {
         "context": "default",
         "uri": "turbo://fragment/web",
+        "fallback_uri": "turbo://fragment/web",
         "pull_to_refresh_enabled": true
       }
     },
     {
       "patterns": [
-        "^$",
-        "^/$"
+        "/strada-form$"
       ],
       "properties": {
-        "uri": "turbo://fragment/web/home",
-        "presentation": "replace_root"
+        "context": "modal",
+        "uri": "turbo://fragment/web/modal",
+        "pull_to_refresh_enabled": false
       }
     }
   ]
