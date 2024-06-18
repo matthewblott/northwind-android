@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+  <ImageButton
+      android:id="@+id/button_save"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:contentDescription="Save"
+      android:src="@drawable/save_24dp_fill"
+      tools:ignore="HardcodedText">
+  </ImageButton>
+</FrameLayout>
