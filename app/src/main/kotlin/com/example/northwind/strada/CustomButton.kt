@@ -7,14 +7,14 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.example.northwind.R
 import com.example.northwind.base.NavDestination
-import com.example.northwind.databinding.ButtonDeleteBinding
+import com.example.northwind.databinding.ButtonCustomBinding
 import dev.hotwire.strada.BridgeComponent
 import dev.hotwire.strada.BridgeDelegate
 import dev.hotwire.strada.Message
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-open class DeleteButton(
+open class CustomButton(
   name: String,
   private val delegate: BridgeDelegate<NavDestination>,
 ) : BridgeComponent<NavDestination>(name, delegate) {
@@ -39,16 +39,17 @@ open class DeleteButton(
   private fun showToolbarButton(data: MessageData) {
     val menu = toolbar?.menu ?: return
     val inflater = LayoutInflater.from(fragment.requireContext())
-    val binding = ButtonDeleteBinding.inflate(inflater)
+    val binding = ButtonCustomBinding.inflate(inflater)
 
-    binding.buttonDelete.apply {
+    binding.buttonCustom.text = data.title
+    binding.buttonCustom.apply {
       setOnClickListener {
         performSubmit()
       }
     }
 
-    menu.removeItem(2)
-    menu.add(0, 2, 0, data.title).apply {
+    menu.removeItem(3)
+    menu.add(0, 3, 0, data.title).apply {
       actionView = binding.root
       setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
     }
@@ -60,7 +61,7 @@ open class DeleteButton(
 
   @Serializable
   data class MessageData(
-    // This must be the same name as the variable being passed in the stimulus controller
+    // Must be the same name as the argument passed to the send method of the Stimulus controller
     @SerialName("title") val title: String
   )
 }

@@ -60,7 +60,7 @@ open class SaveButton(
 
   @Serializable
   data class MessageData(
-    // This must be the same name as the variable being passed in the stimulus controller
+    // Must be the same name as the argument passed to the send method of the Stimulus controller
     @SerialName("title") val title: String
   )
 }
