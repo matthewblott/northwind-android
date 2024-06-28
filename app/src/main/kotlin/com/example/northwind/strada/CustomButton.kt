@@ -29,6 +29,7 @@ open class CustomButton(
       "connect" -> handleConnectEvent(message)
       else -> Log.w("TurboDemo", "Unknown event for message: $message")
     }
+
   }
 
   private fun handleConnectEvent(message: Message) {

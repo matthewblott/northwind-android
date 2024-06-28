@@ -42,6 +42,7 @@ dependencies {
 //  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
   implementation("dev.hotwire:strada:1.0.0-beta3")
   implementation("dev.hotwire:turbo:7.1.3")
+  implementation("androidx.appcompat:appcompat:1.7.0")
 }
 
 repositories {

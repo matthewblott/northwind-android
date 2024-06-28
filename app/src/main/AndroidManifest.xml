@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:tools="http://schemas.android.com/tools"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-  <uses-permission android:name="android.permission.INTERNET"/>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+  <uses-permission android:name="android.permission.INTERNET" />
   <application
-    android:enableOnBackInvokedCallback="true"
-    android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-    android:usesCleartextTraffic="true"
-    tools:ignore="MissingApplicationIcon">
+      android:enableOnBackInvokedCallback="true"
+      android:label="Northwind"
+      android:usesCleartextTraffic="true"
+      tools:ignore="MissingApplicationIcon">
     <activity
-      android:name="com.example.northwind.main.MainActivity"
-      android:launchMode="singleInstance"
-      android:exported="true">
+        android:exported="true"
+        android:launchMode="singleInstance"
+        android:name=".main.MainActivity"
+        android:theme="@style/MyTheme">
       <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
   </application>

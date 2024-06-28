@@ -5,13 +5,13 @@
     android:layout_margin="0sp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-  <Button
-      android:id="@+id/button_custom"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:height="48dp"
-      android:background="@android:color/transparent"
-      android:text="Button"
-      tools:ignore="HardcodedText,SmallSp">
-  </Button>
+
+ <com.google.android.material.button.MaterialButton
+     android:id="@+id/button_custom"
+     android:layout_width="match_parent"
+     android:textAllCaps="false"
+     android:layout_height="match_parent"
+     android:text="Button"
+     tools:ignore="HardcodedText" />
+
 </FrameLayout>
