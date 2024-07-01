@@ -16,6 +16,24 @@
     },
     {
       "patterns": [
+        "^$",
+        "^/$"
+      ],
+      "properties": {
+        "uri": "turbo://fragment/web/home",
+        "presentation": "replace_root"
+      }
+    },
+    {
+      "patterns": [
+        "/suppliers/[0-9]+$"
+      ],
+      "properties": {
+        "uri": "turbo://fragment/web/supplier"
+      }
+    },
+    {
+      "patterns": [
         "/strada-form$"
       ],
       "properties": {

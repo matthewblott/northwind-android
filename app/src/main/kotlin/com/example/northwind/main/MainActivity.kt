@@ -54,4 +54,3 @@ class MainActivity : AppCompatActivity(), TurboActivity {
   }
 
 }
-

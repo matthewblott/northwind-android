@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+  <style name="SquareCornerButton" parent="Widget.MaterialComponents.Button" />
+  <style name="SquareCorners" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+    <item name="cornerFamily">rounded</item>
+  </style>
+
   <style name="MyTheme" parent="@style/Theme.Material3.DayNight.NoActionBar">
 
     <!-- Primary brand color. -->
