@@ -9,8 +9,8 @@
       ],
       "properties": {
         "context": "default",
-        "uri": "turbo://fragment/web",
-        "fallback_uri": "turbo://fragment/web",
+        "uri": "northwind://fragment/",
+        "fallback_uri": "northwind://fragment/",
         "pull_to_refresh_enabled": true
       }
     },
@@ -20,16 +20,8 @@
         "^/$"
       ],
       "properties": {
-        "uri": "turbo://fragment/web/home",
+        "uri": "northwind://fragment/home",
         "presentation": "replace_root"
-      }
-    },
-    {
-      "patterns": [
-        "/suppliers/[0-9]+$"
-      ],
-      "properties": {
-        "uri": "turbo://fragment/web/supplier"
       }
     },
     {
@@ -38,7 +30,7 @@
       ],
       "properties": {
         "context": "modal",
-        "uri": "turbo://fragment/web/modal",
+        "uri": "northwind://fragment/web/modal",
         "pull_to_refresh_enabled": false
       }
     }

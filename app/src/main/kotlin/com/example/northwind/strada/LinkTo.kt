@@ -1,20 +1,21 @@
 package com.example.northwind.strada
 
 import android.util.Log
-import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import com.example.northwind.R
 import com.example.northwind.base.NavDestination
-import com.example.northwind.databinding.ButtonSaveBinding
 import dev.hotwire.strada.BridgeComponent
 import dev.hotwire.strada.BridgeDelegate
 import dev.hotwire.strada.Message
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-open class SaveButton(
+open class LinkTo (
   name: String,
   private val delegate: BridgeDelegate<NavDestination>,
 ) : BridgeComponent<NavDestination>(name, delegate) {
@@ -36,25 +37,27 @@ open class SaveButton(
   }
 
   private fun showToolbarButton(data: MessageData) {
-    val menu = toolbar?.menu ?: return
-    val inflater = LayoutInflater.from(fragment.requireContext())
-    val binding = ButtonSaveBinding.inflate(inflater)
+    val menuProvider = object : MenuProvider {
+      override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.menu_link_to, menu)
+        val menuItem = menu.findItem(R.id.menu_item)
+        menuItem?.let {
+          it.title = data.title
+        }
+      }
 
-    binding.buttonSave.apply {
-      setOnClickListener {
-        performSubmit()
+      override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        return when (menuItem.itemId) {
+          R.id.menu_item -> {
+            return replyTo("connect")
+          }
+          else -> false
+        }
       }
     }
 
-    menu.removeItem(1)
-    menu.add(0, 1, 0, data.title).apply {
-      actionView = binding.root
-      setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
-    }
-  }
-
-  private fun performSubmit(): Boolean {
-    return replyTo("connect")
+    toolbar?.removeMenuProvider(menuProvider as MenuProvider)
+    toolbar?.addMenuProvider(menuProvider as MenuProvider)
   }
 
   @Serializable

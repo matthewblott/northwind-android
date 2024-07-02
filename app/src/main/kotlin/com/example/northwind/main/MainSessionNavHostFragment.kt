@@ -1,10 +1,7 @@
 package com.example.northwind.main
 
-import androidx.fragment.app.Fragment
-import com.example.northwind.features.web.BaseHomeFragment
-import com.example.northwind.features.web.BaseFragment
-import com.example.northwind.features.web.WebFragment
-import com.example.northwind.features.web.WebSupplierFragment
+import com.example.northwind.features.web.Fragment as Fragment
+import com.example.northwind.features.web.HomeFragment
 import com.example.northwind.strada.bridgeComponentFactories
 import dev.hotwire.strada.Bridge
 import dev.hotwire.strada.Strada
@@ -17,11 +14,10 @@ class MainSessionNavHostFragment : TurboSessionNavHostFragment() {
   override val sessionName = "main"
   override val startLocation = "http://10.0.2.2:3000"
 
-  override val registeredFragments: List<KClass<out Fragment>>
+  override val registeredFragments: List<KClass<out androidx.fragment.app.Fragment>>
     get() = listOf(
-      WebFragment::class,
-      WebSupplierFragment::class,
-      BaseHomeFragment::class,
+      Fragment::class,
+      HomeFragment::class,
     )
 
   override val pathConfigurationLocation: TurboPathConfiguration.Location

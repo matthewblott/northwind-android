@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
   <item
-      android:id="@+id/menu_addresses"
-      android:title="Addresses"
+      android:id="@+id/menu_item"
+      android:title="Title"
       app:showAsAction="never"
       tools:ignore="HardcodedText" />
 </menu>

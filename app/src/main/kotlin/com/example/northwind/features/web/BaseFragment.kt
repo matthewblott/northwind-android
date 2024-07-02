@@ -13,7 +13,7 @@ open class BaseFragment : TurboWebFragment(), NavDestination {
     BridgeDelegate(
       location = location,
       destination = this,
-      componentFactories =  bridgeComponentFactories
+      componentFactories = bridgeComponentFactories
     )
   }
 

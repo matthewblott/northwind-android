@@ -1,7 +1,6 @@
 package com.example.northwind.strada
 
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -11,14 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import com.example.northwind.R
 import com.example.northwind.base.NavDestination
-import com.example.northwind.databinding.ButtonCustomBinding
 import dev.hotwire.strada.BridgeComponent
 import dev.hotwire.strada.BridgeDelegate
 import dev.hotwire.strada.Message
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-open class CustomButton2 (
+open class SupplierMenu (
   name: String,
   private val delegate: BridgeDelegate<NavDestination>,
 ) : BridgeComponent<NavDestination>(name, delegate) {
@@ -45,7 +43,7 @@ open class CustomButton2 (
 
     toolbar?.addMenuProvider(object : MenuProvider {
       override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        menuInflater.inflate(R.menu.menu_supplier, menu)
+        menuInflater.inflate(R.menu.menu_link_to, menu)
       }
 
       override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
@@ -58,26 +56,6 @@ open class CustomButton2 (
       }
     }, fragment.viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-    val menu = toolbar?.menu ?: return
-    val inflater = LayoutInflater.from(fragment.requireContext())
-    val binding = ButtonCustomBinding.inflate(inflater)
-
-    binding.buttonCustom.text = data.title
-    binding.buttonCustom.apply {
-      setOnClickListener {
-        performSubmit()
-      }
-    }
-
-    menu.removeItem(3)
-    menu.add(0, 3, 0, data.title).apply {
-      actionView = binding.root
-      setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
-    }
-  }
-
-  private fun performSubmit(): Boolean {
-    return replyTo("connect")
   }
 
   @Serializable

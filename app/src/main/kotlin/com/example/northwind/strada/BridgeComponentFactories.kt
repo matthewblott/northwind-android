@@ -9,9 +9,6 @@ val bridgeComponentFactories = listOf(
   BridgeComponentFactory("edit", ::EditButton),
   BridgeComponentFactory("save", ::SaveButton),
   BridgeComponentFactory("delete", ::DeleteButton),
-)
-
-val bridgeComponentFactories2 = listOf(
-  // Must be the same name as the Stimulus static component
-  BridgeComponentFactory("custom", ::CustomButton2),
+  BridgeComponentFactory("supplier-menu", ::SupplierMenu),
+  BridgeComponentFactory("link-to", ::LinkTo),
 )

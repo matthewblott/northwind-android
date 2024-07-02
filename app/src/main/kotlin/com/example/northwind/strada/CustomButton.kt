@@ -42,6 +42,8 @@ open class CustomButton(
     val inflater = LayoutInflater.from(fragment.requireContext())
     val binding = ButtonCustomBinding.inflate(inflater)
 
+
+
     binding.buttonCustom.text = data.title
     binding.buttonCustom.apply {
       setOnClickListener {

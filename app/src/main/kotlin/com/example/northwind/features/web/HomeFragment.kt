@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import com.example.northwind.R
 import dev.hotwire.turbo.nav.TurboNavGraphDestination
 
-@TurboNavGraphDestination(uri = "turbo://fragment/web")
-class WebFragment : BaseFragment() {
+@TurboNavGraphDestination(uri = "northwind://fragment/home")
+class HomeFragment : BaseFragment() {
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-    return inflater.inflate(R.layout.fragment_web, container, false)
+    return inflater.inflate(R.layout.fragment_home, container, false)
   }
 
 }
