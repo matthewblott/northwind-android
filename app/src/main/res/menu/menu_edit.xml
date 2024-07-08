@@ -4,8 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
   <item
-      android:id="@+id/menu_link_to_item"
+      android:id="@+id/menu_edit_item"
+      android:title="Edit"
       android:visible="true"
-      app:showAsAction="never"
-      tools:ignore="HardcodedText,MenuTitle" />
+      app:showAsAction="always"
+      tools:ignore="HardcodedText" />
+
 </menu>

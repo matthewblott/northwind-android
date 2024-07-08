@@ -34,13 +34,17 @@ class MainActivity : AppCompatActivity(), TurboActivity {
 
     setContentView(binding.root)
 
-    setSupportActionBar(binding.toolbar)
+    val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+    setSupportActionBar(toolbar)
 
     val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_nav_host) as NavHostFragment
 
     navController = navHostFragment.navController
 
     appBarConfiguration = AppBarConfiguration(navHostFragment.navController.graph)
+
+//    setupActionBarWithNavController(navController, appBarConfiguration)
     setupActionBarWithNavController(navController)
 
     delegate = TurboActivityDelegate(this, R.id.main_nav_host)

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.northwind.R
 import com.example.northwind.base.NavDestination
 import com.example.northwind.databinding.ButtonCustomBinding
+import com.example.northwind.databinding.ButtonOverflowBinding
 import dev.hotwire.strada.BridgeComponent
 import dev.hotwire.strada.BridgeDelegate
 import dev.hotwire.strada.Message
@@ -42,8 +43,6 @@ open class CustomButton(
     val inflater = LayoutInflater.from(fragment.requireContext())
     val binding = ButtonCustomBinding.inflate(inflater)
 
-
-
     binding.buttonCustom.text = data.title
     binding.buttonCustom.apply {
       setOnClickListener {
@@ -56,6 +55,7 @@ open class CustomButton(
       actionView = binding.root
       setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
     }
+
   }
 
   private fun performSubmit(): Boolean {

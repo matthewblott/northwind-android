@@ -5,8 +5,11 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.core.view.removeItemAt
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import com.example.northwind.R
 import com.example.northwind.base.NavDestination
 import dev.hotwire.strada.BridgeComponent
@@ -14,6 +17,7 @@ import dev.hotwire.strada.BridgeDelegate
 import dev.hotwire.strada.Message
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import java.lang.Exception
 
 open class LinkTo (
   name: String,
@@ -21,10 +25,14 @@ open class LinkTo (
 ) : BridgeComponent<NavDestination>(name, delegate) {
   private val fragment: Fragment
     get() = delegate.destination.fragment
-  private val toolbar: Toolbar?
-    get() = fragment.view?.findViewById(R.id.toolbar)
+  private lateinit var toolbar : Toolbar
 
   override fun onReceive(message: Message) {
+    if(fragment is com.example.northwind.features.web.Fragment) {
+      val foo = fragment as com.example.northwind.features.web.Fragment
+      toolbar = foo.toolbar
+    }
+
     when (message.event) {
       "connect" -> handleConnectEvent(message)
       else -> Log.w("TurboDemo", "Unknown event for message: $message")
@@ -39,16 +47,23 @@ open class LinkTo (
   private fun showToolbarButton(data: MessageData) {
     val menuProvider = object : MenuProvider {
       override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        menuInflater.inflate(R.menu.menu_link_to, menu)
-        val menuItem = menu.findItem(R.id.menu_item)
-        menuItem?.let {
-          it.title = data.title
+//        menu.clear()
+        val item: MenuItem? = menu.findItem(R.id.menu_link_to_item)
+
+        if(item != null ) {
+          menu.removeItem(R.id.menu_link_to_item)
         }
+
+        menuInflater.inflate(R.menu.menu_link_to, menu)
+
+        val menuItem = menu.findItem(R.id.menu_link_to_item)
+
+        menuItem?.title = data.title
       }
 
       override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
-          R.id.menu_item -> {
+          R.id.menu_link_to_item -> {
             return replyTo("connect")
           }
           else -> false
@@ -56,8 +71,8 @@ open class LinkTo (
       }
     }
 
-    toolbar?.removeMenuProvider(menuProvider as MenuProvider)
-    toolbar?.addMenuProvider(menuProvider as MenuProvider)
+    toolbar.addMenuProvider(menuProvider, fragment.getViewLifecycleOwner(), Lifecycle.State.RESUMED)
+
   }
 
   @Serializable
