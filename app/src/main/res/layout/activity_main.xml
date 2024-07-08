@@ -10,24 +10,21 @@
   <com.google.android.material.appbar.AppBarLayout
       android:id="@+id/app_bar"
       android:layout_width="match_parent"
-      android:layout_height="56dp"
+      android:layout_height="?attr/actionBarSize"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent">
 
-      <include layout="@layout/toolbar" />
-<!--    <com.google.android.material.appbar.MaterialToolbar-->
-<!--        android:id="@+id/toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
-  </com.google.android.material.appbar.AppBarLayout>
-
-
-    <androidx.fragment.app.FragmentContainerView
-        android:layout_marginTop="50dp"
-        android:id="@+id/main_nav_host"
-        android:name="com.example.northwind.main.MainSessionNavHostFragment"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+  </com.google.android.material.appbar.AppBarLayout>
+
+  <androidx.fragment.app.FragmentContainerView
+      android:id="@+id/main_nav_host"
+      android:name="com.example.northwind.main.MainSessionNavHostFragment"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

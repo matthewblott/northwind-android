@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -21,7 +22,8 @@ open class SaveButton(
 ) : BridgeComponent<NavDestination>(name, delegate) {
   private val fragment: Fragment
     get() = delegate.destination.fragment
-  private var toolbar = (fragment as com.example.northwind.features.web.Fragment).toolbar
+  private val toolbar: Toolbar?
+    get() = fragment.view?.findViewById(R.id.toolbar)
 
   override fun onReceive(message: Message) {
     when (message.event) {
@@ -58,7 +60,7 @@ open class SaveButton(
       }
     }
 
-    toolbar.addMenuProvider(menuProvider, fragment.getViewLifecycleOwner(), Lifecycle.State.RESUMED)
+    toolbar?.addMenuProvider(menuProvider, fragment.getViewLifecycleOwner(), Lifecycle.State.RESUMED)
   }
 
   @Serializable
