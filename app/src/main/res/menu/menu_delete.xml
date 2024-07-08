@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
   <item
-      android:id="@+id/menu_edit_item"
-      android:icon="@drawable/edit_square_24px"
-      android:title="Edit"
+      android:id="@+id/menu_delete_item"
+      android:icon="@drawable/delete_24px"
+      android:title="Save"
       android:visible="true"
       app:showAsAction="always"
       tools:ignore="HardcodedText" />
