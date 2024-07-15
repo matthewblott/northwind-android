@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
 import com.example.northwind.R
 import dev.hotwire.turbo.nav.TurboNavGraphDestination
 
@@ -17,7 +18,7 @@ class Fragment : BaseFragment() {
 
   @SuppressLint("UseRequireInsteadOfGet")
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-    toolbar = this.activity?.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)!!
+    toolbar = this.activity?.findViewById(R.id.toolbar)!!
     return inflater.inflate(R.layout.fragment, container, false)
   }
 }
