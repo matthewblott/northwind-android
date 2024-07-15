@@ -42,13 +42,10 @@ open class EditButton(
     val menuProvider = object : MenuProvider {
       override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         val item: MenuItem? = menu.findItem(R.id.menu_edit_item)
-
         if(item != null ) {
           menu.removeItem(R.id.menu_edit_item)
         }
-
         menuInflater.inflate(R.menu.menu_edit, menu)
-
       }
 
       override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
