@@ -27,30 +27,26 @@ class MainActivity : AppCompatActivity(), TurboActivity {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-
-    binding = ActivityMainBinding.inflate(layoutInflater)
-
-    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-
-    setContentView(binding.root)
-
-    setSupportActionBar(binding.toolbar)
-
-    val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_nav_host) as NavHostFragment
-
-    navController = navHostFragment.navController
-
-    appBarConfiguration = AppBarConfiguration(navHostFragment.navController.graph)
-    setupActionBarWithNavController(navController)
+    setContentView(R.layout.activity_main)
 
     delegate = TurboActivityDelegate(this, R.id.main_nav_host)
     Strada.config.jsonConverter = KotlinXJsonConverter()
 
+//    binding = ActivityMainBinding.inflate(layoutInflater)
+//    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+//    setContentView(binding.root)
+//    setSupportActionBar(binding.toolbar)
+//    val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_nav_host) as NavHostFragment
+//    navController = navHostFragment.navController
+//    appBarConfiguration = AppBarConfiguration(navHostFragment.navController.graph)
+//    setupActionBarWithNavController(navController)
+//    delegate = TurboActivityDelegate(this, R.id.main_nav_host)
+//    Strada.config.jsonConverter = KotlinXJsonConverter()
   }
 
-  override fun onSupportNavigateUp(): Boolean {
-    return navController.navigateUp(appBarConfiguration)
-        || super.onSupportNavigateUp()
-  }
+//  override fun onSupportNavigateUp(): Boolean {
+//    return navController.navigateUp(appBarConfiguration)
+//        || super.onSupportNavigateUp()
+//  }
 
 }

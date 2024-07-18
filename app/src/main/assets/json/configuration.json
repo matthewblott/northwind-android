@@ -9,8 +9,8 @@
       ],
       "properties": {
         "context": "default",
-        "uri": "northwind://fragment/",
-        "fallback_uri": "northwind://fragment/",
+        "uri": "northwind://fragment/web",
+        "fallback_uri": "northwind://fragment/web",
         "pull_to_refresh_enabled": true
       }
     },
@@ -20,18 +20,17 @@
         "^/$"
       ],
       "properties": {
-        "uri": "northwind://fragment/home",
+        "uri": "northwind://fragment/web/home",
         "presentation": "replace_root"
       }
     },
     {
       "patterns": [
-        "/strada-form$"
+        "/numbers$"
       ],
       "properties": {
-        "context": "modal",
-        "uri": "northwind://fragment/web/modal",
-        "pull_to_refresh_enabled": false
+        "uri": "northwind://fragment/numbers",
+        "title": "Numbers"
       }
     }
   ]
