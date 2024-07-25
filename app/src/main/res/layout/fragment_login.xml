@@ -14,9 +14,9 @@
       app:layout_constraintTop_toTopOf="parent">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar_home"
-        app:title="Home"
+        android:id="@+id/toolbar_login"
         android:layout_width="match_parent"
+        app:title="Login"
         android:layout_height="match_parent" />
   </com.google.android.material.appbar.AppBarLayout>
 

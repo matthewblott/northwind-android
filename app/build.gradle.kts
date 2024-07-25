@@ -36,13 +36,14 @@ android {
 }
 
 dependencies {
-  implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+  implementation("androidx.appcompat:appcompat:1.7.0")
   implementation("androidx.browser:browser:1.8.0")
-  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-//  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
+  implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+  implementation("com.google.android.flexbox:flexbox:3.0.0")
   implementation("dev.hotwire:strada:1.0.0-beta3")
   implementation("dev.hotwire:turbo:7.1.3")
-  implementation("androidx.appcompat:appcompat:1.7.0")
+  //noinspection GradleDependency
+  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 }
 
 repositories {

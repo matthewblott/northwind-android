@@ -5,15 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toolbar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
 import com.example.northwind.R
 import dev.hotwire.turbo.nav.TurboNavGraphDestination
 
 @TurboNavGraphDestination(uri = "northwind://fragment/")
 class Fragment : BaseFragment() {
-
   lateinit var toolbar : androidx.appcompat.widget.Toolbar
 
   @SuppressLint("UseRequireInsteadOfGet")

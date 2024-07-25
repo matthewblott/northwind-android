@@ -14,6 +14,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.northwind.R
 import com.example.northwind.databinding.ActivityMainBinding
+import com.google.android.material.appbar.MaterialToolbar
 import dev.hotwire.strada.KotlinXJsonConverter
 import dev.hotwire.strada.Strada
 import dev.hotwire.turbo.activities.TurboActivity
@@ -34,22 +35,43 @@ class MainActivity : AppCompatActivity(), TurboActivity {
 
     setContentView(binding.root)
 
-    setSupportActionBar(binding.toolbar)
+    val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+
+//    setSupportActionBar(binding.toolbar)
+    setSupportActionBar(toolbar)
 
     val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_nav_host) as NavHostFragment
 
     navController = navHostFragment.navController
 
     appBarConfiguration = AppBarConfiguration(navHostFragment.navController.graph)
+
+//    setupActionBarWithNavController(navController, appBarConfiguration)
     setupActionBarWithNavController(navController)
 
     delegate = TurboActivityDelegate(this, R.id.main_nav_host)
+
     Strada.config.jsonConverter = KotlinXJsonConverter()
+
+//    navController.addOnDestinationChangedListener { _, destination, _ ->
+//      // 443542969
+//      // println(destination.id)
+//      if (destination.id == R.layout.fragment_home) {
+//        // Hiding the up (back) button
+//        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+//      } else {
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//      }
+//    }
 
   }
 
+//  override fun onSupportNavigateUp(): Boolean {
+//    return navController.navigateUp(appBarConfiguration)
+//        || super.onSupportNavigateUp()
+//  }
   override fun onSupportNavigateUp(): Boolean {
-    return navController.navigateUp(appBarConfiguration)
+    return navController.navigateUp()
         || super.onSupportNavigateUp()
   }
 

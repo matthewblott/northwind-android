@@ -12,6 +12,8 @@
   <color name="md_theme_light_error">#B00020</color>
   <color name="md_theme_light_onError">#FFFFFF</color>
 
+  <color name="button_ripple_color">#BB86FC</color> <!-- Ripple effect color -->
+
   <!-- Dark theme colors -->
   <color name="md_theme_dark_primary">#525f7a</color>
   <color name="md_theme_dark_onPrimary">#FFFFFF</color>

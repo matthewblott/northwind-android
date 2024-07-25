@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -24,7 +25,7 @@ open class CustomButton(
   private val fragment: Fragment
     get() = delegate.destination.fragment
   private val toolbar: Toolbar?
-    get() = fragment.view?.findViewById(R.id.toolbar)
+    get() = fragment.view?.findViewById(R.id.toolbar_login)
 
   override fun onReceive(message: Message) {
     when (message.event) {
@@ -67,11 +68,6 @@ open class CustomButton(
     }
 
     toolbar?.addMenuProvider(menuProvider, fragment.getViewLifecycleOwner(), Lifecycle.State.RESUMED)
-
-  }
-
-  private fun performSubmit(): Boolean {
-    return replyTo("connect")
   }
 
   @Serializable
