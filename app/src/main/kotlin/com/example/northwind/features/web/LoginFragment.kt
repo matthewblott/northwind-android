@@ -20,18 +20,4 @@ class LoginFragment : BaseFragment() {
     return inflater.inflate(R.layout.fragment_login, container, false)
   }
 
-  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    val activity = this.activity as? AppCompatActivity
-    val actionBar = activity?.supportActionBar
-
-    actionBar?.apply {
-      actionBar.setDisplayHomeAsUpEnabled(false)
-//      setDisplayHomeAsUpEnabled(false)
-      title = "Foo"
-    }
-
-    super.onViewCreated(view, savedInstanceState)
-
-  }
-
 }

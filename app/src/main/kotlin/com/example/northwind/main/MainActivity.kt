@@ -1,16 +1,11 @@
 package com.example.northwind.main
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.northwind.R
 import com.example.northwind.databinding.ActivityMainBinding
@@ -37,7 +32,6 @@ class MainActivity : AppCompatActivity(), TurboActivity {
 
     val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
 
-//    setSupportActionBar(binding.toolbar)
     setSupportActionBar(toolbar)
 
     val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_nav_host) as NavHostFragment
@@ -46,30 +40,14 @@ class MainActivity : AppCompatActivity(), TurboActivity {
 
     appBarConfiguration = AppBarConfiguration(navHostFragment.navController.graph)
 
-//    setupActionBarWithNavController(navController, appBarConfiguration)
     setupActionBarWithNavController(navController)
 
     delegate = TurboActivityDelegate(this, R.id.main_nav_host)
 
     Strada.config.jsonConverter = KotlinXJsonConverter()
 
-//    navController.addOnDestinationChangedListener { _, destination, _ ->
-//      // 443542969
-//      // println(destination.id)
-//      if (destination.id == R.layout.fragment_home) {
-//        // Hiding the up (back) button
-//        supportActionBar?.setDisplayHomeAsUpEnabled(false)
-//      } else {
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//      }
-//    }
-
   }
 
-//  override fun onSupportNavigateUp(): Boolean {
-//    return navController.navigateUp(appBarConfiguration)
-//        || super.onSupportNavigateUp()
-//  }
   override fun onSupportNavigateUp(): Boolean {
     return navController.navigateUp()
         || super.onSupportNavigateUp()

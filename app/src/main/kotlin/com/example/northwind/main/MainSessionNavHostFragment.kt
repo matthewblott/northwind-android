@@ -1,7 +1,6 @@
 package com.example.northwind.main
 
-import com.example.northwind.features.web.CustomersFragment
-import com.example.northwind.features.web.Fragment as Fragment
+import com.example.northwind.features.web.Fragment
 import com.example.northwind.features.web.HomeFragment
 import com.example.northwind.features.web.LoginFragment
 import com.example.northwind.strada.bridgeComponentFactories
@@ -15,11 +14,10 @@ import kotlin.reflect.KClass
 
 class MainSessionNavHostFragment : TurboSessionNavHostFragment() {
   override val sessionName = "main"
-  override val startLocation = HOME_URL
+  override val startLocation = "$HOME_URL/"
 
   override val registeredFragments: List<KClass<out androidx.fragment.app.Fragment>>
     get() = listOf(
-      CustomersFragment::class,
       Fragment::class,
       HomeFragment::class,
       LoginFragment::class,

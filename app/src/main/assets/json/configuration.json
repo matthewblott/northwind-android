@@ -34,18 +34,8 @@
       ],
       "properties": {
         "uri": "northwind://fragment/home",
-        "presentation": "replace_root"
-      }
-    },
-    {
-      "patterns": [
-        "^/customers/$",
-        "^/customers$"
-      ],
-      "properties": {
-        "uri": "northwind://fragment/customers",
         "presentation": "replace_root",
-        "title": "Customers"
+        "title": "Home"
       }
     },
     {
