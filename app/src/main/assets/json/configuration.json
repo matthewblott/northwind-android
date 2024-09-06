@@ -16,8 +16,8 @@
     },
     {
       "patterns": [
-        "^/login/$",
-        "^/login$"
+        "^/employees/sign_in/$",
+        "^/employees/sign_in$"
       ],
       "properties": {
         "context": "default",

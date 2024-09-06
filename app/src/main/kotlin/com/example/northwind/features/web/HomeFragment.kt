@@ -9,8 +9,6 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.core.view.MenuProvider
@@ -56,10 +54,6 @@ class HomeFragment : TurboFragment(), NavDestination {
         val vw = item?.actionView
 
         if(vw != null) {
-//          val itemIcon = vw.findViewById<ImageView>(R.id.item_logout_icon)
-//          itemIcon.setOnClickListener { v ->
-//            navigate(LOGOUT_URL)
-//          }
           val itemText = vw.findViewById<TextView>(R.id.item_logout_text)
           itemText.setOnClickListener { v ->
             navigate(LOGOUT_URL)
